@@ -8,6 +8,8 @@ import android.widget.TextView
 import android.widget.Toast
 
 class LoginActivity : AppCompatActivity() {
+    private val REG_REQUEST_CODE = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login_const)
@@ -19,19 +21,31 @@ class LoginActivity : AppCompatActivity() {
                 Toast.makeText(this, "Invalid id/password input.", Toast.LENGTH_SHORT).show()
             }else{
                 val intent = Intent(this, MainActivity::class.java)
+                    .putExtra("userId", idText.text.toString())
                 startActivity(intent)
             }
         }
         val registerText = findViewById<TextView>(R.id.registerText).setOnClickListener{
             val intent = Intent(this, RegisterActivity::class.java)
-            startActivity(intent)
+            startActivityForResult(intent, REG_REQUEST_CODE)
+        }
+    }
+
+    override fun onActivityResult(reqCode: Int, resCode: Int, data: Intent?){
+        super.onActivityResult(reqCode, resCode, data)
+        if (resCode != RESULT_OK){
+            val text = "Something went wrong :(" +
+                    "\nid: ${data?.extras?.getString("userId")}" +
+                    "\npw: ${data?.extras?.getString("userPw")}"
+            Toast.makeText(this, text, Toast.LENGTH_SHORT).show()
+        }
+        when(reqCode){
+            REG_REQUEST_CODE -> {
+                val idText = findViewById<TextView>(R.id.idText)
+                val pwText = findViewById<TextView>(R.id.pwText)
+                idText.text = data?.extras?.getString("userId")
+                pwText.text = data?.extras?.getString("userPw")
+            }
         }
     }
 }
-
-/*
-setOnClickListener(View.onClickListener{
-    override fun onClick
-})
-
- */
