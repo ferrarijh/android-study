@@ -3,6 +3,7 @@ package com.jonathan.trace.study
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
@@ -16,6 +17,17 @@ class LoginActivity : AppCompatActivity() {
 
         val idText = findViewById<TextView>(R.id.idText)
         val pwText = findViewById<TextView>(R.id.pwText)
+
+        val sp = getSharedPreferences("user", MODE_PRIVATE)
+        val id = sp.getString("id","")
+        Log.d("myid111","11111${id.toString()}!")
+        if (id != ""){
+            val intent = Intent(this, MainActivity::class.java)
+                .putExtra("userId", idText.text.toString())
+            startActivity(intent)
+        }else
+            Toast.makeText(this, "sf id field is empty", Toast.LENGTH_SHORT).show()
+
         val loginBtn = findViewById<Button>(R.id.loginButton).setOnClickListener{
             if(idText.text.isNullOrBlank() || pwText.text.isNullOrBlank()){
                 Toast.makeText(this, "Invalid id/password input.", Toast.LENGTH_SHORT).show()

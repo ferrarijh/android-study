@@ -23,7 +23,6 @@ class RegisterActivity: AppCompatActivity(){
             val userName = findViewById<EditText>(R.id.registerNameEdit).text.toString()
             val userAge = findViewById<EditText>(R.id.registerAgeEdit).text.toString().toInt()  //입력값 int 아니면 NumberFormatException
 
-            //val sf = getSharedPreferences("user", Context.MODE_PRIVATE)
             val intent = Intent()
             intent.putExtra("userId", userId)
             intent.putExtra("userPw", userPw)
