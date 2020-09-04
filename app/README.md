@@ -15,7 +15,9 @@ https://developer.android.com/guide/topics/ui/layout/relative?hl=ko
 
 ### SharedPreferences
 MODE_PRIVATE : 해당 앱에서만
+<br>
 MODE_WORLD_READABLE
+<br>
 MODE_WORLD_WRITABLE
 
 ### Linear layout - weight
