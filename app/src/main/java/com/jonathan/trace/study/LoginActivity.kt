@@ -1,5 +1,6 @@
 package com.jonathan.trace.study
 
+import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -18,12 +19,11 @@ class LoginActivity : AppCompatActivity() {
         val idText = findViewById<TextView>(R.id.idText)
         val pwText = findViewById<TextView>(R.id.pwText)
 
-        val sp = getSharedPreferences("user", MODE_PRIVATE)
+        val sp = getSharedPreferences("user", Activity.MODE_PRIVATE)
         val id = sp.getString("id","")
-        Log.d("myid111","11111${id.toString()}!")
         if (id != ""){
             val intent = Intent(this, MainActivity::class.java)
-                .putExtra("userId", idText.text.toString())
+                .putExtra("userId", id)
             startActivity(intent)
         }else
             Toast.makeText(this, "sf id field is empty", Toast.LENGTH_SHORT).show()
