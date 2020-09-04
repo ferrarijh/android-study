@@ -1,8 +1,6 @@
 # jonathan-study
 Let's study android
 
-## Login
-
 ### Relative Layout is Legacy
 구글 안드로이드 공식 문서에선 Relative Layout대신 Constraint Layout을 사용하길 권장하고있다.
 <br>
