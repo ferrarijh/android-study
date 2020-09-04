@@ -15,8 +15,10 @@ https://developer.android.com/guide/topics/ui/layout/relative?hl=ko
 
 ### SharedPreferences
 MODE_PRIVATE : 해당 앱에서만
-<br>MODE_WORLD_READABLE
-<br>MODE_WORLD_WRITABLE
+<br>
+MODE_WORLD_READABLE
+<br>
+MODE_WORLD_WRITABLE
 
 ### Linear layout - weight
 Linear Layout의 자식 뷰 속성에 layout_weight 항목 사용시, 수평형이면 layout_width="0dp" 설정하고 layout_weight 값만으로 뷰 비율 설정.
