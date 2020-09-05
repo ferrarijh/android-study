@@ -6,6 +6,12 @@ Stores data as xml file in /data/data/{<i>app_dir</i>}/shared_prefs/{<i>name</i>
 Since the xml file is directly accessible, private information such as password should not be saved via shared preference.
 However, just for the sake of studying I decided to try this.
 
+## startActivityForResult(), onActivityResult()
+Rather than simply starting another activity with ```startActivity(intent)```, an activity may summon another activity to expect certain result returned.
+Such can be done with ```startActivityForResult(intent)```. The summoned activity sets result with ```setResult(RESULT_CODE, intent)``` and on ```finish()```,
+the app returns to summoning activity. Summoning activity then decides what to do with the result inside body of ```onActivityResult()```.
+
+
 ## Demo
 <div>
     <img src="https://github.com/ferrarijh/android-study-login/blob/master/demo/1.jpg" width="270" height="504">
