@@ -7,11 +7,11 @@ Since the xml file is directly accessible, private information such as password 
 However, just for the sake of studying I decided to try this.
 
 ## startActivityForResult(), onActivityResult()
-<i>This api will be replaced with new api from google.
+<i>This api will soon be replaced with new api from google.
 <br>https://developer.android.com/jetpack/androidx/releases/activity#version_120_2
 <br>https://developer.android.com/jetpack/androidx/releases/fragment#version_130_2
 </i>
-<br>
+<br></br>
 Rather than simply starting another activity with ```startActivity(intent)```, an activity may summon another activity to expect certain result returned.
 Such can be done with ```startActivityForResult(intent)```. The summoned activity sets result with ```setResult(RESULT_CODE, intent)``` and on ```finish()```,
 the app returns to summoning activity. Summoning activity then decides what to do with the result inside body of ```onActivityResult()```.
